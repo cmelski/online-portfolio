@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chris Melski — Senior Test Manager | SDETTest</title>
+  <title>Chris Melski — Senior Test Manager | SDET</title>
   <meta name="description" content="Chris Melski — Senior Test Manager & SDET. Portfolio, resume, and case studies." />
   <link rel="stylesheet" href="css/styles.css"/>
   <!-- Favicon placeholder -->
@@ -22,7 +22,8 @@
       <nav id="main-nav" class="nav">
         <ul>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#projects-work">Projects - Work</a></li>
+          <li><a href="#projects-personal">Projects - Personal</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
 
@@ -38,25 +39,18 @@
         <div class="hero-copy">
           <h1>Senior Test Manager | SDET</h1>
           <p>
-           Results-driven Test Manager and SDET with 20+ years of global experience across QA strategy, test automation, and requirements management within Investment Banking, Trading, and Telecom domains. Skilled in developing end-to-end automation frameworks (Python, Playwright, Cypress, Selenium) and leading large, distributed QA teams to deliver high-quality, compliant systems. Combines a strong hands-on technical foundation with strategic test leadership, ensuring quality governance, automation efficiency, and business alignment from requirements through production release.
+           Results-driven Test Manager and SDET with 20+ years of global experience across QA strategy, test automation, and requirements management within FX Trading, Telecom, and eCommerce domains. Skilled in developing end-to-end automation frameworks (Python, Playwright, Cypress, Selenium) and leading large, distributed QA teams to deliver high-quality, compliant systems. Combines a strong hands-on technical foundation with strategic test leadership, ensuring quality governance, automation efficiency, and business alignment from requirements through production release.
           </p>
           <p>In my spare time I enjoy HIIT training, hiking, movies, reading and programming.</p>
           <p class="hero-actions">
-            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn" href="#projects-work">View Projects-Work</a>
+            <a class="btn" href="#projects-personal">View Projects-Personal</a>
             <a class="btn-outline" href="files/Chris_Melski_Test Manager_SDET_CV.pdf" download>Download Resume (PDF)</a>
           </p>
         </div>
 
         <aside class="hero-meta" aria-label="Contact and quick info">
           <dl>
-            <div>
-              <dt>Location</dt>
-              <dd>Canada</dd>
-            </div>
-            <div>
-              <dt>Role</dt>
-              <dd>Test Manager | SDET</dd>
-            </div>
             <div>
               <dt>Email</dt>
               <dd><a href="mailto:c_melski@yahoo.com">c_melski@yahoo.com</a></dd>
@@ -81,12 +75,12 @@
           <h3>Senior Test Manager | SDET - Barclays, Singapore</h3>
           <p class="meta">2007 – 2024 | Singapore</p>
           <ul>
-            <li>Led test automation initiatives for BARX FX e-Trading platform, integrating Python Playwright regression suites into CI/CD.</li>
-            <li>Drove test planning and execution across multiple asset classes, ensuring global test alignment.</li>
-            <li>Managed and mentored a team of QA engineers and SDETs, establishing automation-first principles.</li>
-            <li>Oversaw requirements validation and regulatory change testing, ensuring compliance and transparency.</li>
-            <li>Conducted root cause analysis for production incidents, implementing preventive test coverage improvements.</li>
-            <li>Acted as the bridge between QA, Development, and Business, ensuring end-to-end delivery quality.</li>
+            <li>Led test automation initiatives for BARX FX e-Trading platforms, covering spot, forwards, swaps, and NDF workflows, integrating Python Playwright regression suites into CI/CD pipelines.</li>
+            <li>Drove test planning and execution across FX cash and derivatives, ensuring global test alignment across pricing, execution, STP, and post-trade flows.</li>
+            <li>Managed and mentored a team of QA engineers and SDETs, establishing automation-first testing strategies for low-latency trading systems.</li>
+            <li>Oversaw requirements validation and regulatory change testing (e.g., MiFID II, Dodd Frank, trade reporting), ensuring compliance and audit transparency.</li>
+            <li>Conducted root cause analysis for production trading incidents (pricing discrepancies, execution failures, booking breaks), implementing preventive test coverage improvements.</li>
+            <li>Acted as the bridge between QA, Development, and FX Trading, Sales, and Risk stakeholders, ensuring end-to-end delivery quality across the trade lifecycle.</li>
           </ul>
         </li>
 
@@ -142,22 +136,22 @@
     </section>
 
     <!-- PROJECTS / CASE STUDIES - WORK -->
-    <section id="projects" class="section container">
+    <section id="projects-work" class="section container">
       <h2>Projects / Case Studies - Work</h2>
 
       <div class="projects-grid">
         <article class="project-card">
-          <h3>Automated Regression Framework — Orders over FIX</h3>
+          <h3>Automated Regression Framework — BARX FX Trading Platform</h3>
           <p class="project-role">Problem</p>
-          <p>Manual regression took 2 weeks which was time/resource intensive.</p>
+          <p>Manual regression testing of Barx FX Trading over FIX API took 2 weeks which was time/resource intensive.</p>
           <p class="project-role">Solution</p>
-          <p>Designed a modular/data driven Python test framework using Pytest, integrated with CI/CD, and built API and DB validation checks.</p>
+          <p>Designed a modular/data driven Python test framework using Pytest, integrated with CI/CD, and built API, server, and DB validation checks.</p>
           <p class="project-role">Outcome</p>
-          <p>Regression time reduced to <1 day; defects caught earlier resulting in faster release sign-off.</p>
+          <p>Regression time reduced to < 1hr; defects caught earlier resulting in faster release sign-off.</p>
         </article>
 
         <article class="project-card">
-          <h3>Manual Orders Intervention</h3>
+          <h3>Manual Orders Intervention - BARX FX Trading Platform</h3>
           <p class="project-role">Problem</p>
           <p>Most test scenarios were difficult/impossible to trigger manually.</p>
           <p class="project-role">Solution</p>
@@ -167,27 +161,17 @@
         </article>
 
         <article class="project-card">
-          <h3>Automated Controls Testing Framework</h3>
+          <h3>Automated Controls Testing Framework - BARX FX Trading Platform</h3>
           <p class="project-role">Problem</p>
           <p>Gaps in front-to-back trade controls (limit checks, validation rules, and throttling) led to undetected breaches and potential regulatory exposure.</p>
           <p class="project-role">Solution</p>
-          <p>Defined and executed a comprehensive QA strategy to test key controls across trade capture, validation, and reporting. This included automation of limit checks, negative test scenarios, and workflow testing.</p>
+          <p>Defined and executed a comprehensive QA strategy to test key controls across trade capture, validation, and reporting. This included Python automation of limit checks, negative test scenarios, and workflow testing.</p>
           <p class="project-role">Outcome</p>
           <p>The strengthened control testing framework identified multiple control weaknesses before go-live, improved compliance confidence, and ensured that regulatory and risk controls operated reliably under production conditions.</p>
         </article>
 
-           <article class="project-card">
-          <h3>Automated Task Manager Framework</h3>
-          <p class="project-role">Problem</p>
-          <p>Manual testing of the task manager web application was time-consuming and error-prone, especially for verifying dynamic features like task creation, due dates, and user interactions across multiple table rows.</p>
-          <p class="project-role">Solution</p>
-          <p>Developed a Pytest BDD + Playwright automation framework to validate the task manager end-to-end. Feature scenarios were written in Gherkin to cover key workflows and Pytest BDD structured tests were developed for maintainability and readability. Implemented Allure reporting to see detailed test results.</p>
-          <p class="project-role">Outcome</p>
-          <p>Achieved reliable automated verification of task creation, updates, and calendar interactions that ensures the task manager behaves correctly after each update.</p>
-        </article>
-
         <article class="project-card">
-          <h3>Trader UAT Coordination — BARX FX Trading Platform</h3>
+          <h3>Trader UAT Coordination - BARX FX Trading Platform</h3>
           <p class="project-role">Problem</p>
           <p>Traders experienced repeated environment issues and unclear test scripts.</p>
           <p class="project-role">Solution</p>
@@ -204,11 +188,11 @@
 
       <div class="projects-grid">
         <article class="project-card">
-          <h3>AI Test Automation Log Analyzer</h3>
+          <h3>AI-Assisted Test Script Log Analyzer</h3>
           <p class="project-role">Overview</p>
-          <p>Built a Python based AI-assisted test automation log analyzer to classify test run errors from pytest log files.</p>
+          <p>Built a Python based AI-assisted test automation script log analyzer to classify test run errors from pytest log files.</p>
           <p class="project-role">Test Automation Impact</p>
-          <p>Automated detection and reporting of various failure types and stack traces to reduce manual log review.</p>
+          <p>Automated detection and reporting of various failure types (including confidence levels) and stack traces to reduce manual log review.</p>
         </article>
 
         <article class="project-card">
@@ -222,7 +206,7 @@
         <article class="project-card">
           <h3>API Health Checker</h3>
           <p class="project-role">Overview</p>
-          <p>Built a config-driven API health checker with strict validation, structured logging, and clean error handling.</p>
+          <p>Built a config-driven API health checker in Python with strict validation, structured logging, and clean error handling.</p>
           <p class="project-role">Test Automation Impact</p>
           <p>Implemented strict configuration validation to fail fast on invalid environments, missing fields, or malformed endpoints.
           Also, added structured logging to capture execution flow, endpoint results, and failure reasons.</p>
@@ -231,7 +215,7 @@
          <article class="project-card">
           <h3>Server Log Analysis Tool</h3>
           <p class="project-role">Overview</p>
-          <p>Developed a Python-based log analysis tool to parse high-volume application logs and compute new order request rates per client, including orders-per-second metrics over configurable time windows.</p>
+          <p>Developed a Python-based log analysis tool to parse high-volume application logs and compute new order request rates per client, including orders-per-second metrics over configurable time windows. Also, created a Python script to compute failed order requests classified by failure code.</p>
           <p class="project-role">Test Automation Impact</p>
           <p>Implemented command-line argument parsing, input validation, and CSV reporting to support repeatable analysis.</p>
         </article>
@@ -243,6 +227,15 @@
           <p class="project-role">Test Automation Impact</p>
           <p>Implemented API-to-database validation workflows using reusable fixtures, assertions, and parameterized tests to validate order/product/customer creation, updates, and status transitions.</p>
         </article>
+
+         <article class="project-card">
+          <h3>Task Manager System with End-to-End Test Automation</h3>
+          <p class="project-role">Overview</p>
+          <p>Developed a Task Manager web application using Python, Flask, Javascript, and Postgresql. Implemented a Pytest BDD + Playwright automation framework to validate the system end-to-end. Feature scenarios were written in Gherkin to cover key workflows and Pytest BDD structured tests were developed for maintainability and readability. Implemented Allure reporting.</p>
+          <p class="project-role">Test Automation Impact</p>
+          <p>Achieved reliable automated verification of task creation, updates, and calendar interactions that ensures the task manager behaves correctly after each update. Integrated a CI/CD pipeline with GitHub and Jenkins.</p>
+        </article>
+
 
 
       </div>
