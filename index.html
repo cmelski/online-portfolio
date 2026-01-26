@@ -205,21 +205,8 @@
 
     .github-float:hover { color: var(--accent); }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .content { margin-left: 0; padding: 1.5rem; }
-      .panel { min-height: auto; }
-    }
-
-      .sidebar-social {
+   /* Sidebar social icons */
+.sidebar-social {
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
@@ -236,45 +223,58 @@
   transform: translateY(-2px);
 }
 
-      /* Sidebar base */
+/* Sidebar fixed layout */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 240px;
-  background: var(--bg);
+  width: 280px;
   z-index: 1000;
   transition: transform 0.3s ease;
 }
 
-/* Main content base */
-.main-content {
-  margin-left: 240px;
+/* Main content push layout */
+.content {
+  margin-left: 280px;
   transition: margin-left 0.3s ease;
+}
+
+/* Mobile toggle button */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2000;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  backdrop-filter: blur(8px);
 }
 
 /* Mobile behavior */
 @media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
 
   /* Sidebar OPEN by default */
   .sidebar {
     transform: translateX(0);
   }
 
-  /* When sidebar is closed */
+  /* Sidebar closed */
   body.sidebar-closed .sidebar {
     transform: translateX(-100%);
   }
 
   /* Shift content when closed */
-  body.sidebar-closed .main-content {
+  body.sidebar-closed .content {
     margin-left: 0;
-  }
-
-  /* Toggle button visible on mobile */
-  .mobile-toggle {
-    display: block;
   }
 }
 
