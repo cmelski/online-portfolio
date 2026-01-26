@@ -9,8 +9,7 @@
   <!-- Fonts (Apple/Stripe-like) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <style>
+ <style>
     :root {
       --bg: #0b0f1a;
       --bg-soft: #111827;
@@ -25,33 +24,32 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
       background: linear-gradient(180deg, #020617, #0b0f1a);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     /* Layout */
-    .layout {
-      display: flex;
-      min-height: 100vh;
-    }
+    .layout { display: flex; min-height: 100vh; }
 
     /* Sidebar */
     .sidebar {
-      width: 280px;
-      background: rgba(2,6,23,0.95);
-      border-right: 1px solid var(--border);
-      padding: 2rem 1.5rem;
       position: fixed;
       top: 0;
       left: 0;
+      width: 280px;
       height: 100vh;
+      background: rgba(2,6,23,0.95);
+      border-right: 1px solid var(--border);
+      padding: 2rem 1.5rem;
       backdrop-filter: blur(12px);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      overflow-y: auto;
     }
 
     .profile img {
@@ -67,10 +65,7 @@
       font-weight: 600;
     }
 
-    .profile p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
+    .profile p { font-size: 0.9rem; color: var(--muted); }
 
     .sidebar nav {
       margin-top: 2rem;
@@ -86,22 +81,31 @@
       transition: 0.2s;
     }
 
-    .sidebar nav a:hover {
-      color: var(--accent);
+    .sidebar nav a:hover { color: var(--accent); }
+
+    .sidebar-social {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
     }
+
+    .sidebar-social a {
+      font-size: 1.4rem;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .sidebar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
     /* Main Content */
     .content {
       margin-left: 280px;
       padding: 2rem 3rem;
       flex: 1;
+      transition: margin-left 0.3s ease;
     }
 
-    .panel {
-      min-height: 100vh;
-      padding: 3.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .panel { min-height: 100vh; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
 
     .hero-panel {
       display: flex;
@@ -112,12 +116,7 @@
       padding: 3rem;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
+    h2 { font-size: 2rem; margin-bottom: 1rem; font-weight: 600; }
     p { line-height: 1.65; color: var(--muted); }
 
     /* Buttons */
@@ -131,28 +130,13 @@
       margin-right: 0.5rem;
     }
 
-    .btn {
-      background: var(--accent);
-      color: #022c22;
-    }
-
+    .btn { background: var(--accent); color: #022c22; }
     .btn:hover { background: var(--accent-soft); }
-
-    .btn-outline {
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-
+    .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
     .btn-outline:hover { background: rgba(20,184,166,0.1); }
 
     /* Badges */
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
+    .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .badge {
       padding: 0.3rem 0.6rem;
       border-radius: 999px;
@@ -163,12 +147,7 @@
     }
 
     /* Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .card {
       background: rgba(2,6,23,0.65);
       border: 1px solid var(--border);
@@ -178,7 +157,6 @@
     }
 
     .card h3 { margin-top: 0; font-size: 1.05rem; }
-
     .label {
       font-size: 0.75rem;
       letter-spacing: 0.08em;
@@ -205,81 +183,35 @@
 
     .github-float:hover { color: var(--accent); }
 
-   /* Sidebar social icons */
-.sidebar-social {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-}
+    /* Mobile Toggle Button */
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2000;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      backdrop-filter: blur(8px);
+    }
 
-.sidebar-social a {
-  font-size: 1.4rem;
-  color: var(--muted);
-  transition: 0.2s ease;
-}
+    /* Mobile Behavior */
+    @media (max-width: 768px) {
+      .mobile-toggle { display: block; }
 
-.sidebar-social a:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
+      /* Sidebar closed */
+      body.sidebar-closed .sidebar { transform: translateX(-100%); }
 
-/* Sidebar fixed layout */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 280px;
-  z-index: 1000;
-  transition: transform 0.3s ease;
-}
+      /* Shift content when sidebar is hidden */
+      body.sidebar-closed .content { margin-left: 0; }
 
-/* Main content push layout */
-.content {
-  margin-left: 280px;
-  transition: margin-left 0.3s ease;
-}
-
-/* Mobile toggle button */
-.mobile-toggle {
-  display: none;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 2000;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: 1px solid var(--border);
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  backdrop-filter: blur(8px);
-}
-
-/* Mobile behavior */
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: block;
-  }
-
-  /* Sidebar OPEN by default */
-  .sidebar {
-    transform: translateX(0);
-  }
-
-  /* Sidebar closed */
-  body.sidebar-closed .sidebar {
-    transform: translateX(-100%);
-  }
-
-  /* Shift content when closed */
-  body.sidebar-closed .content {
-    margin-left: 0;
-  }
-}
-
-
-
+      /* Sidebar open by default */
+      .sidebar { transform: translateX(0); }
+    }
   </style>
 </head>
 
@@ -597,12 +529,11 @@
 <!-- Floating GitHub Badge -->
 <a class="github-float" href="https://github.com/cmelski" target="_blank">⭐ GitHub Portfolio</a>
 <script>
-const toggle = document.querySelector(".mobile-toggle");
-
-toggle.onclick = () => {
-  document.body.classList.toggle("sidebar-closed");
-};
-</script>
+    const toggle = document.querySelector(".mobile-toggle");
+    toggle.onclick = () => {
+      document.body.classList.toggle("sidebar-closed");
+    };
+  </script>
 
 
 </body>
