@@ -8,6 +8,7 @@ class LandingPage:
         self.page = page
         self.profile = page.locator('.profile')
 
+
     def get_profile_details(self):
 
         image = self.profile.locator('img')
