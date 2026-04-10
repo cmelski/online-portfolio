@@ -7,6 +7,7 @@ class LandingPage:
     def __init__(self, page):
         self.page = page
         self.profile = page.locator('.profile')
+        self.automation_projects = page.locator('#projects-personal .card')
 
 
     def get_profile_details(self):

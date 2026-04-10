@@ -72,7 +72,28 @@ def test_personal_site_links(page_instance: Page, personal_sites):
 
     # URL validation (flexible)
     assert f"{personal_sites}.com" in new_page.url
-    logger_utility().info(f'{personal_sites} link works as expected')
+    if personal_sites == 'github':
+        site_body = new_page.locator('body')
+        expect(site_body).to_contain_text('Chris Melski')
+    logger_utility().info(f'{personal_sites} link works as expected.')
+
+@pytest.mark.automation_project_links
+def test_automation_project_links(page_instance):
+    landing_page = LandingPage(page_instance)
+    projects = landing_page.automation_projects
+    projects_count = projects.count()
+    for i in range(projects_count):
+        with page_instance.expect_popup() as popup_info:
+            project_link = projects.nth(i).locator('a').get_attribute('href')
+            projects.nth(i).locator('a').click()
+        new_page = popup_info.value
+        new_page.wait_for_load_state("domcontentloaded")
+
+        table_body_git = new_page.locator('tbody')
+        expect(table_body_git).to_contain_text('cmelski')
+        logger_utility().info(f'Automation Project link: {project_link} opens github and github correctly '
+                              f'contains "cmelski"')
+        new_page.close()
 
 
 @pytest.mark.mailto
