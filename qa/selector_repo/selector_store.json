@@ -1,0 +1,16 @@
+{
+  "automation_projects": {
+    "primary": "#projects-personal .card",
+    "alternatives": [
+      "#projects_personal .card",
+      ".projects-personal.card"
+    ]
+  },
+  "profile": {
+    "primary": ".profile",
+    "alternatives": [
+      "#profile",
+      ".portfolio-profile"
+    ]
+  }
+}
